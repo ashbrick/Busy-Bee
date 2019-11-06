@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>New</title>
+    </head>
+    <body>
+        <h1>Create To-Do Item</h1>
+        <!-- add form action so that app.post works -->
+        <form action="/lists" method="POST">
+            Title: <input type="text" name="title" /><br>
+            Details: <input type="textarea" name="details"/><br>
+            Complete: <input type="checkbox" name="complete"><br>
+            <input type="submit" value="Create Item"/>
+        </form>
+    </body>
+</html>

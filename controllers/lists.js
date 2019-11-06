@@ -10,8 +10,8 @@ const List = require('../models/lists.js')
 //>>>>>>>> New >>>>>>>>>>> //put before show route
 //sets up a form page called "new list page for new.ejs"
 router.get('/new', (req, res) =>{
-    // res.render('new.ejs')
-    res.send('new'); // making sure it's connected
+    res.render('./lists/new.ejs')
+    // res.send('new'); // making sure it's connected, it works
 });
 
 //>>>>>>>> Create >>>>>>>>>>>
@@ -25,7 +25,9 @@ router.post('/', (req, res) =>{
 //>>>>>>>> Index >>>>>>>>>>>
 //for rendering all list items
 router.get('/' , (req, res) => {
-  // res.render('index.ejs');
+        res.render('./lists/index.ejs', {
+            lists:allItems // the key lists become var name in index.ejs, lists is an array of objects because allItems is a collection of documents
+        });
   // res.send('index page'); //this works
 });
 
