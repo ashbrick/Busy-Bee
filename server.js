@@ -4,6 +4,7 @@ const methodOverride  = require('method-override');
 const mongoose        = require ('mongoose');
 const app             = express ();
 const db              = mongoose.connection;
+const listsController = require('./controllers/lists.js')//make sure this const matches the require when creating the new file for controlers
 require('dotenv').config()
 
 //////// Port
@@ -27,12 +28,8 @@ app.use(express.static('public')); //use public folder for static assets
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
 app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
 //use method override
-app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
-
-///////// Routes
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form, need it to use req.body
+app.use('/lists', listsController); //specifies when middleware runs
 
 
 //////// Listener
