@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Edit Item</title>
+    </head>
+    <body>
+        <form action="/lists/<%=list.id%>?_method=PUT" method="POST">
+            Title: <input type="text" name="title" value="<%=list.title%>"/><br>
+            Details: <input type="textarea" name="details" value="<%=list.details%>"/><br>
+            Complete:
+            <input type="checkbox" name="complete"
+                <% if(list.complete === true){ %>
+                    checked
+                <% } %>
+            /><br>
+            <input type="submit" value="Submit Changes"/>
+        </form>
+    </body>
+</html>
