@@ -32,5 +32,12 @@ app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form, ne
 app.use('/lists', listsController); //specifies when middleware runs
 
 
+//////////// Routes
+
+//=====> Home Route
+app.get('/', (req, res) => {
+    res.render('home.ejs')
+});
+
 //////// Listener
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));

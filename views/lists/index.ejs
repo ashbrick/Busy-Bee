@@ -5,11 +5,17 @@
         <title>Index</title>
     </head>
     <body>
-        <h1>To-Do List</h1>
+        <h1>To-Do List Item Index</h1>
         <ul>
             <% for(let i = 0; i < lists.length; i++){ %>
                 <li>
-                    <%=lists[i].title%>
+                    <%=lists[i].title%><br>
+                    Completed:
+                    <input type="checkbox" name="complete"
+                        <% if(lists.complete === true){ %>
+                            checked
+                        <% } %>
+                    /><br>
                     <!-- DELETE form -->
                     <form action="/lists/<%=lists[i].id%>?_method=DELETE" method="POST">
                         <input type="submit" value="DELETE"/>
@@ -20,7 +26,8 @@
             <% } %>
         </ul>
         <nav>
-            <a href="/lists/new">Add List Item</a>
+            <a href="/lists/new">Add List Item</a><br>
+            <a href="/lists-index">Home</a>
         </nav>
     </body>
 </html>
