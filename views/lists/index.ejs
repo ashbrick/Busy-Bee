@@ -2,32 +2,25 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Index</title>
+        <title>My Lists</title>
     </head>
     <body>
-        <h1>To-Do List Item Index</h1>
+        <h1>My Lists</h1>
         <ul>
             <% for(let i = 0; i < lists.length; i++){ %>
                 <li>
-                    <%=lists[i].title%><br>
-                    Completed:
-                    <input type="checkbox" name="complete"
-                        <% if(lists.complete === true){ %>
-                            checked
-                        <% } %>
-                    /><br>
-                    <!-- DELETE form -->
-                    <form action="/lists/<%=lists[i].id%>?_method=DELETE" method="POST">
-                        <input type="submit" value="DELETE"/>
+                    <a href="/lists/<%=lists[i].id%>">
+                        <%=lists[i].listName%>
+                    </a>
+                    <form action="/<%=lists[i].id%>?_method=DELETE" method="POST">
+                        <input type="submit" value="DELETE LIST">
                     </form>
-                    <!-- Link to send user to edit page -->
                     <a href="/lists/<%=lists[i].id%>/edit">Edit</a>
                 </li>
             <% } %>
         </ul>
         <nav>
-            <a href="/lists/new">Add List Item</a><br>
-            <a href="/lists-index">Home</a>
+            <a href="/">Home</a>
         </nav>
     </body>
 </html>

@@ -2,14 +2,17 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Show</title>
+        <title>List</title>
     </head>
     <body>
-        <h1><%=list.title%></h1>
-        <p><%=list.details%></p>
         <nav>
-            <a href="/lists">Back to Main</a>
-            <a href="/lists/:id/edit">Edit</a>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/lists"></a>Lists</li>
+                <li><a href="/edit">Edit</a></li>
+            </ul>
         </nav>
+        <h1><%=list.name%></h1>
+
     </body>
 </html>

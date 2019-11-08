@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
+const Item = require('./lists.js');
 
-//creating framework for to-do list items
-const listSchema = new mongoose.Schema({
-    title: { type: String, required: true},
-    details: String,
-    complete: Boolean
+//creating framework for list creation in database
+const listSchema = mongoose.Schema({
+    name: String,
+    // listItems: [Item.schema]
 });
 
-// creating an empty array in mongo called List based on blueprint of properties each item will have (according to schema)
-const List = mongoose.model('List', listSchema); // List creates a collection
+//create variable for List
+const List = mongoose.model('List', listSchema);
 
+//export it so it can be accessed as a variable and required by controllers for use in ejs files
 module.exports = List;
