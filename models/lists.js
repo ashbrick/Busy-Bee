@@ -3,7 +3,7 @@ const Item = require('./lists.js');
 
 //creating framework for list creation in database
 const listSchema = mongoose.Schema({
-    name: String,
+    name: String
     // listItems: [Item.schema]
 });
 
