@@ -46,10 +46,10 @@ router.get('/:id/edit', (req, res) => {
 //====================
 //need method override for this to work
 router.delete('/:id', (req, res) => {
-    res.send('deleting')
-    // List.findByIdAndRemove(req.params.id, (err, data) =>{
-        // res.redirect('/lists');
-    // }); // closing for List.findByIdAndRemove
+    // res.send('deleting') --> this works
+    List.findByIdAndRemove(req.params.id, (err, data) =>{
+        res.redirect('/lists');
+    }); // closing for List.findByIdAndRemove
 }); //closing for router.delete
 
 //====================
