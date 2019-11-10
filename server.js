@@ -29,7 +29,7 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 app.use(express.static('public')); //use public folder for static assets
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
-// going to need this to create new lists and list items, so include after setting up index for list items and lists 
+// going to need this to create new lists and list items, so include after setting up index for list items and lists
 app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
 
 //use method override
@@ -49,7 +49,7 @@ app.get('/', (req, res) => {
 // sets up a form page called Start New List (begin.ejs)
 // should take you to begin.ejs form
 app.get('/newlist', (req, res) => {
-    res.render('./items/begin.ejs')
+    res.render('./lists/new.ejs')
 });
 
 
@@ -57,22 +57,22 @@ app.get('/newlist', (req, res) => {
 
 
 //=====> Create Route
-app.post('/list-index', (req, res) => {
+app.post('/lists', (req, res) => {
 List.create(req.body, (err, createdList) => {
-    res.redirect('/list-index')
+    res.redirect('/lists/index.ejs')
     });
 });
 
 //>>>>>>>> Lists-Index >>>>>>>>>>>
 //for rendering all list items
-app.get('/lists-index' , (req, res) => {
-    List.find({}, (error, allItems) =>{ //allItems can be any name and then assigning it to the variable "lists" -- find will return array of objects
-        res.render('lists-index.ejs', {
-            lists:allItems // the key lists become var name in index.ejs, lists is an array of objects because allItems is a collection of documents
-        });
-  // res.send('index page'); //this works
-    });
-});
+// app.get('/lists-index' , (req, res) => {
+//     List.find({}, (error, allItems) =>{ //allItems can be any name and then assigning it to the variable "lists" -- find will return array of objects
+//         res.render('lists-index.ejs', {
+//             lists:allItems // the key lists become var name in index.ejs, lists is an array of objects because allItems is a collection of documents
+//         });
+//   // res.send('index page'); //this works
+//     });
+// });
 
 //////// Listener
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));

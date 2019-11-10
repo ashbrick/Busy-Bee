@@ -7,14 +7,19 @@ const Item       = require('../models/items.js')
 //===================
 
 
-//>>>>>>>> New >>>>>>>>>>> //put before show route
-//sets up a form page called "new item page for new.ejs"
+//====================
+//  New route
+//====================
+// goes before show route
+// sets up a form page called "new item page for new.ejs"
 router.get('/new', (req, res) =>{
     res.render('./items/new.ejs')
     // res.send('new'); // making sure it's connected, it works
 });
 
-//>>>>>>>> Create >>>>>>>>>>>
+//====================
+//  Create route
+//====================
 //for creating data for each item, , creates model in database and sends user back to index
 //make sure you go to new.ejs and add the form action and method
 router.post('/', (req, res) =>{
@@ -26,7 +31,9 @@ router.post('/', (req, res) =>{
     }) //closing for Item.create func
 }); //closing for router.post
 
-//>>>>>>>> Index >>>>>>>>>>>
+//====================
+//  Index route
+//====================
 //for rendering all items
 router.get('/' , (req, res) => {
     Item.find({}, (error, allItems) =>{ //allItems can be any name and then assigning it to the variable "items" -- find will return array of objects
@@ -37,7 +44,9 @@ router.get('/' , (req, res) => {
     });
 });
 
-//>>>>>>>> Show >>>>>>>>>>>
+//====================
+//  Show route
+//====================
 router.get('/:id', (req, res) => {
     //req.params.id is referring to :id
     Item.findById(req.params.id, (err, foundItems) => {
@@ -49,7 +58,9 @@ router.get('/:id', (req, res) => {
     }); //closing to Item.findById
 }); //closing for router.get
 
-//>>>>>>>> Delete >>>>>>>>>>>
+//====================
+//  Delete route
+//====================
 // need method-override for this (require it and use it)
 router.delete('/:id', (req, res) => {
     Item.findByIdAndRemove(req.params.id, (err, data) => {
@@ -60,19 +71,23 @@ router.delete('/:id', (req, res) => {
 //can use curl to check it: curl -X DELETE localhost:3000/items/asdf
 //will show page html if route works, then go set up delete form on index.ejs to send a delete request to appropriate route
 
-//>>>>>>>> Edit >>>>>>>>>>>
+//====================
+//  Edit route
+//====================
 router.get('/:id/edit', (req, res) => {
     // res.render('edit.ejs') // displayed edit page form
     // now update to find item by id
     Item.findById(req.params.id, (error, foundItems) => {
         res.render('./items/edit.ejs',{
             item:foundItems //squid wizard will populate info based on this var.
-        }) //res.render closing
+        }); //res.render closing
     }); // Item.findById closing
     // res.redirect('/:id') //redirect to show page
 }); //router.get closing
 
-//>>>>>>>> Update >>>>>>>>>>>
+//====================
+//  Update route
+//====================
 //edit route sends info here
 router.put('/:id', (req, res) => {
     // res.redirect('/');
