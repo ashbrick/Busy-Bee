@@ -4,9 +4,8 @@ const methodOverride  = require('method-override');
 const mongoose        = require ('mongoose');
 const app             = express ();
 const db              = mongoose.connection;
-const itemsController = require('./controllers/items.js')//make sure this const matches the require when creating the new file for controlers
-const listsController = require('./controllers/lists.js')
-const Item            = require('./models/items.js')
+// const List            = require('./models/lists.js')
+// const Item            = require('./models/items.js')
 require('dotenv').config()
 
 //////// Port
@@ -25,43 +24,68 @@ db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
+
+
+
 //////// Middleware
 app.use(express.static('public')); //use public folder for static assets
 
 // populates req.body with parsed info from forms - if no data from forms will return an empty object {}
 // going to need this to create new lists and list items, so include after setting up index for list items and lists
-app.use(express.urlencoded({ extended: false }));// extended: false - does not allow nested objects in query strings
+app.use(express.urlencoded({ extended: true }));// extended: false - does not allow nested objects in query strings
 
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form, need it to use req.body
+
+
+const itemsController = require('./controllers/items.js')//make sure this const matches the require when creating the new file for controlers
+const listsController = require('./controllers/lists.js')
+
 app.use('/lists', listsController);
 app.use('/items', itemsController); //specifies when middleware runs, so since using this you can take off the /items from the urls in the routes but not for the redirects
 
 
+
+
+
+
+//////// Listener
+app.listen(PORT, () => console.log( 'Listening on port:', PORT));
+
+
+
+
+
+
+
+
+//==============================================//
+//                   CODE GRAVEYARD
+//==============================================//
 //////////// Routes
 
 //=====> Home Route
-app.get('/', (req, res) => {
-    res.render('home.ejs')
-});
+// app.get('/', (req, res) => {
+//     res.render('home.ejs')
+// });
 
 //======> New Route
 // sets up a form page called Start New List (begin.ejs)
 // should take you to begin.ejs form
-app.get('/newlist', (req, res) => {
-    res.render('./lists/new.ejs')
-});
+// app.get('/newlist', (req, res) => {
+//     res.render('./lists/new.ejs')
+// });
 
 
 //======> Update Route
 
-
-//=====> Create Route
-app.post('/lists', (req, res) => {
-List.create(req.body, (err, createdList) => {
-    res.redirect('/lists/index.ejs')
-    });
-});
+//
+// //=====> Create Route
+// app.post('/lists', (req, res) => {
+// List.create(req.body, (err, createdList) => {
+//     res.redirect('/lists/index.ejs')
+//     });
+// });
 
 //>>>>>>>> Lists-Index >>>>>>>>>>>
 //for rendering all list items
@@ -73,6 +97,3 @@ List.create(req.body, (err, createdList) => {
 //   // res.send('index page'); //this works
 //     });
 // });
-
-//////// Listener
-app.listen(PORT, () => console.log( 'Listening on port:', PORT));

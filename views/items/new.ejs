@@ -6,12 +6,22 @@
     </head>
     <body>
         <h1>Create New List Item</h1>
-        <!-- add form action so that app.post works -->
-        <form action="/items" method="POST">
+        <!-- add form action so that router.post works -->
+        <form action="/lists/<%=list._id%>" method="POST">
             To-Do: <input type="text" name="title" /><br>
             Details: <input type="textarea" name="details"/><br>
             Complete: <input type="checkbox" name="complete"><br>
             <input type="submit" value="Create Item"/>
         </form>
+        <nav>
+            <ul>
+					<li>
+						<a href="/">Home</a>
+					</li>
+					<li>
+						<a href="/lists">Lists</a>
+					</li>
+				</ul>
+        </nav>
     </body>
 </html>

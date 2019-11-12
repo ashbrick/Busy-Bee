@@ -2,14 +2,12 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Index</title>
+        <title>Items Index</title>
     </head>
     <body>
         <% for(let i = 0; i < items.length; i++){ %>
         <h1><%=items[i].toDoItem%> : Item Index</h1>
-        <% } %>
         <ul>
-            <% for(let i = 0; i < items.length; i++){ %>
                 <li>
                     <%=items[i].toDoItem%><br>
                     Completed:
@@ -18,18 +16,20 @@
                             checked
                         <% } %>
                     /><br>
+
                     <!-- DELETE form -->
-                    <form action="/items/<%=items[i].id%>?_method=DELETE" method="POST">
+                    <form action="/items/<%=items[i]._id%>?_method=DELETE" method="POST">
                         <input type="submit" value="DELETE"/>
                     </form>
+
                     <!-- Link to send user to edit page -->
-                    <a href="/items/<%=items[i].id%>/edit">Edit</a>
+                    <a href="/items/<%=items[i]._id%>/edit">Edit</a>
                 </li>
             <% } %>
         </ul>
         <nav>
             <a href="/items/new">Add To-Do Item</a><br>
-            <a href="/items-index">Home</a>
+            <a href="/items/index">Home</a>
         </nav>
     </body>
 </html>

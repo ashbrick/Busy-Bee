@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+const List     = require('./lists.js'); // allow items to access my list info so I can add the list array
 
 //creating framework for to-do items
 const itemSchema = new mongoose.Schema({
-    // listName: [List.schema],
-    toDoItem: { type: String, required: true},
+    // listName: [List.schema], // since List is an array of objects, I can use dot notation to call its framework to be pulled in
+    toDoItem: String,
     details: String,
     complete: Boolean
 });

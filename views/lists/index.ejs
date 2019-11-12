@@ -2,25 +2,50 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>My Lists</title>
+        <meta name="viewport" content="width=device-width">
+        <title>Busy Bee Home</title>
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
-        <h1>My Lists</h1>
-        <ul>
-            <% for(let i = 0; i < lists.length; i++){ %>
-                <li>
-                    <a href="/lists/<%=lists[i].id%>">
-                        <%=lists[i].name%>
-                    </a>
-                    <form action="/lists/<%=lists[i].id%>?_method=DELETE" method="POST">
-                        <input type="submit" value="DELETE LIST">
-                    </form>
-                    <a href="/lists/<%=lists[i].id%>/edit">Edit</a>
-                </li>
-            <% } %>
-        </ul>
-        <nav>
-            <a href="/">Home</a>
-        </nav>
+        <header>
+            <div class="container">
+                <div id="logo">
+                    <h1><span class="highlight">Busy</span> Bee</h1>
+                </div>
+                    <nav>
+                        <ul>
+                            <li><a href="/lists/new">New To-Do </a></li>
+                            <li> <a href="#">Login</a>
+                        </ul>
+                    </nav>
+            </div>
+        </header>
+
+        <section id="middle">
+            <div class="container">
+                <h1>An App for Busy People</h1>
+                <p>Write it down. Get it done.</p>
+            </div>
+        </section>
+
+        <div class="list">
+        <h1>To-Do List:</h1>
+            <ul>
+                <% for(let i = 0; i < list.length; i++){ %>
+                    <li>
+                        <a href="/lists/<%=list[i]._id%>">
+                            <%=list[i].listName%>
+                        </a>
+                        <button id="edit-btn"><a href="/lists/<%=list[i]._id%>/edit">Edit</a></button>
+                        <form action="/lists/<%=list[i]._id%>?_method=DELETE" method="POST">
+                            <button type="submit" id="delete-btn">Delete</button>
+                        </form>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+        <div class="footer">
+
+        </div>
     </body>
 </html>

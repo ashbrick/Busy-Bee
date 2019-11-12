@@ -2,16 +2,29 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Edit List</title>
+        <meta name="viewport" content="width=device-width">
+        <title>Edit</title>
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
-        <h1>Edit <%=list.name%> List</h1>
-        <form action="/lists/<%=list.id%>?_method=PUT" method="POST">
-            List Name <input type="text" name="name" value="<%=list.name%>"/><br>
-            <input type="submit" value="Submit"/>
-        </form>
-        <nav>
-            <a href="/">Home</a>
-        </nav>
+        <header>
+            <div class="container">
+                <div class="title">
+                    <h1>Edit <%=list.listName%> List</h1>
+                </div>
+                <nav id="nav-edit">
+                    <ul>
+                        <li><a href="/lists">Home</a></li>
+                        <li><a hre="#">Login</a><li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="list-name">
+            <form action="/lists/<%=list._id%>?_method=PUT" method="POST">
+                List Name <input type="text" name="name" value="<%=list.listName%>"/><br>
+                <input type="submit" class="updateBtn" value="Update List Name"/>
+            </form>
+        </div>
     </body>
 </html>

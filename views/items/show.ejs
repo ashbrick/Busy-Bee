@@ -2,15 +2,24 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Show</title>
+        <title>Items Show Page</title>
     </head>
     <body>
-        <h1><%=item.toDoItem%></h1>
-        <h2><%=item.toDoItem%></h2>
-        <p><%=item.details%></p>
+        <h1><%=list.listName%></h1>
+        <% for(i = 0; i < item.length; i++){ %>
+        <ul>
+            <li>
+                <%=item[i].schema%>
+            </li>
+            <form action="/articles/<%=items._id%>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete Item"/>
+            </form>
+        </ul>
+
+        <% } %>
         <nav>
             <a href="/items">Back to Main</a>
-            <a href="/items/:id/edit">Edit</a>
+            <a href="/items/<%=item._id%>/edit">Edit</a>
         </nav>
     </body>
 </html>

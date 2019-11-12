@@ -2,19 +2,33 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>List</title>
+        <title>Show List</title>
     </head>
     <body>
+        <h1>List: <%=list.listName%> </h1>
+        <!-- show list items here by connecting the two models -->
+        <ul>
+            <% for(let i = 0; i < list.listItems.length; i++) { %>
+            <li>example list item</li>
+            <li>
+                 <li><a href="/items/<%=list.listItems[i]._id%>"><%=list.listItems[i].toDoItem%></a></li>
+            <% } %>
+        </ul>
+        <!-- DELETE -->
+            <form action="/lists/<%=list._id%>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete List"/>
+            </form>
         <nav>
             <ul>
-                <li>
-                    <a href="/">Home</a>
-                </li>
+
                 <li>
                     <a href="/lists">Lists</a>
                 </li>
                 <li>
-                    <a href="/edit">Edit</a>
+                    <a href="/lists/<%=list._id%>/edit">Edit List Name</a>
+                </li>
+                <li>
+                    <a href="/items/new/<%=list._id%>">Add Items</a>
                 </li>
             </ul>
         </nav>

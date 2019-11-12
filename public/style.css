@@ -1,0 +1,189 @@
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+}
+
+/* Global */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow:hidden;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: black;
+    color: #FFD23F;
+    padding-top: 10px;
+    min-height: 60px;
+    border-bottom: #FFD23F 5px solid;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+header li {
+    float: left;
+    display: inline;
+    padding: 0 20px 0px 20px;
+}
+
+header #logo {
+    float: left;
+}
+
+header #logo h1{
+    margin: 0;
+}
+
+header nav {
+    float: right;
+    margin-top: 15px;
+}
+header .highlight, header .current a{
+    color: white;
+    font-weight: bold;
+}
+header a:hover{
+    color: #66D7D1;
+    font-weight: bold;
+}
+
+/* #logo img {
+    min-height: 20px;
+    width: 20px;
+    display: inline;
+} */
+
+#middle {
+    min-height: 100px;
+    text-align: center;
+    background: #FFD23F;
+    border-bottom: 2px solid black;
+}
+
+#middle h1 {
+    margin-top: 15px;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+#middle p {
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.list {
+    width: 80%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 5%;
+    overflow:hidden;
+    /* background-image: url(images/busylogoyellow.png);
+    background-position: right;
+    background-size: 30%;
+    background-repeat: no-repeat; */
+}
+
+.list h1 {
+    color: #999799;
+    font-size: 2.7em;
+}
+
+.list li a{
+    text-decoration: none;
+    color: #393E41;
+    font-size: 2.3em;
+    margin-bottom: 20px;
+    padding: 20px;
+
+}
+
+#edit-btn {
+    border-radius: 4px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-top: 2px;
+    background: #66D7D1;
+    box-shadow: 10px 10px 5px grey;
+    border: none;
+}
+
+#edit-btn:hover{
+    color: #66D7D1;
+    font-weight: bold;
+    border: 1px solid gray;
+}
+
+#delete-btn {
+    margin-top: -10px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    background: black;
+    color: white;
+    border-radius: 4px;
+}
+
+#delete-btn:hover{
+    background: #FE4A49;
+}
+.footer {
+    width: 100%;
+    height: 100px;
+    padding: 30px;
+    margin: auto;
+    background-image: url(images/busylogoyellow.png);
+    background-position: bottom;
+    background-size: 15%;
+    background-repeat: no-repeat;
+}
+
+/* EDIT.ejs */
+.list-name {
+    width: 80%;
+    margin: auto;
+    overflow:hidden;
+}
+
+.title {
+    float: left;
+    margin: 0;
+}
+
+#nav-edit {
+    margin-top: 25px;
+}
+.list-name form {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2em;
+}
+.updateBtn {
+    background: #66D7D1;
+    border-radius: 4px;
+    padding: 10px 20px;
+    margin:auto;
+    margin-bottom: 20px;
+    font-size: .5em;
+}
+.updateBtn:hover{
+    background: #66D7D1;
+    font-weight: bold;
+    border: 1px solid gray;
+    box-shadow: 10px 10px 5px grey;
+}
+#nav-new {
+    margin-top: 25px;
+}
