@@ -1,6 +1,6 @@
 # Unit 2 Project: Busy Bee
 
-A simple way to keep track of your to-do list. Busy Bee gives you the ability to createa to-do list by adding, editing/updating, and deleting to-do items.
+A simple way to keep track of your to-do list. Busy Bee gives you the ability to create a to-do list by adding, editing/updating, and deleting to-do items.
 
 ## Getting Started
 
