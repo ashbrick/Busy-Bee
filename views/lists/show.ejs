@@ -2,10 +2,29 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Show List</title>
+        <meta name="viewport" content="width=device-width">
+        <title>To-Do</title>
+        <link rel="stylesheet" href="/style.css">
     </head>
     <body>
-        <h1>List: <%=list.listName%> </h1>
+        <header>
+            <div class="container">
+                <div class="title">
+                    <h1>To-Do: <%=list.listName%></h1>
+                </div>
+
+            <nav id="nav-show">
+                    <ul>
+                        <li>
+                            <a href="/lists">Home</a>
+                        </li>
+                        <li>
+                            <a href="/lists/<%=list._id%>/edit">Edit Name</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
         <!-- show list items here by connecting the two models -->
         <ul>
             <% for(let i = 0; i < list.listItems.length; i++) { %>
@@ -15,23 +34,12 @@
             <% } %>
         </ul>
         <!-- DELETE -->
+        <div class="list-name">
             <form action="/lists/<%=list._id%>?_method=DELETE" method="POST">
-                <input type="submit" value="Delete List"/>
+                <input type="submit" class="updateBtn" value="Delete To-Do"/>
             </form>
-        <nav>
-            <ul>
+        </div>
 
-                <li>
-                    <a href="/lists">Lists</a>
-                </li>
-                <li>
-                    <a href="/lists/<%=list._id%>/edit">Edit List Name</a>
-                </li>
-                <li>
-                    <a href="/items/new/<%=list._id%>">Add Items</a>
-                </li>
-            </ul>
-        </nav>
 
     </body>
 </html>
