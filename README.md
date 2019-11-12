@@ -4,7 +4,7 @@ A simple way to keep track of your to-do list. Busy Bee gives you the ability to
 
 ## Getting Started
 
-You can check it out Busy Bee here:
+You can check out Busy Bee here:
 [Live Link](https://obscure-lake-34748.herokuapp.com/lists) 
 
 ## Built With
