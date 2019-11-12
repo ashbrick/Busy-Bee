@@ -76,7 +76,7 @@ router.delete('/:id', (req, res) => {
 }); //closing for router.delete
 
 //==========
-//  UPDATE
+//  UPDATE: BROKEN
 //==========
 // edit route sends info here
 router.put('/:id', (req, res) => {
@@ -85,6 +85,7 @@ router.put('/:id', (req, res) => {
         req.body, // comes from properties I set up on edit.ejs file that I want to change
         {new:true}, //if this isn't added then updatedModel won't change, previous info will remain
         (err, updatedModel) => {
+            console.log(req.body)
             res.redirect('/lists'); //back to index
         } //closing for err.updatedModel
     ) // closing for List.findByIdAndUpdate
